@@ -35,28 +35,19 @@
         this.r = r;
         this.color = color;
 
-        cells[s][r].style.backgroundColor = color;
+//        cells[s][r].style.backgroundColor = color;
     }
-    new O;
-    function L() {
-        this.cell1 = new Cell(0,5,"black");
-        this.cell2 = new Cell(1,5,"black");
-        this.cell3 = new Cell(2,5,"black");
-        this.cell4 = new Cell(3,5,"black");
-        this.cell4 = new Cell(3,6,"black");
+    var shapeL = new Shape([0,5],[1,5],[2,5],[2,6],"red");
+    function Shape(cell1,cell2,cell3,cell4,color) {
+        for(var i=0;i<arguments.length-1;i++){
+            cells[arguments[i][0]][arguments[i][1]].style.backgroundColor = color;
+            console.log(cells[[arguments[i][0]][arguments[i][1]]]);
+        }
     }
-    function I(cell1,cell2,cell3,cell4) {
-        this.cell1 = new Cell(0,5,"black");
-        this.cell2 = new Cell(1,5,"black");
-        this.cell3 = new Cell(2,5,"black");
-        this.cell4 = new Cell(3,5,"black");
-    }
-    function O(cell1,cell2,cell3,cell4) {
-        this.cell1 = new Cell(0,5,"black");
-        this.cell2 = new Cell(1,5,"black");
-        this.cell3 = new Cell(0,6,"black");
-        this.cell4 = new Cell(1,6,"black");
-    }
+
+    setInterval(function () {
+        new Shape([0,5],[1,5],[2,5],[2,6]);
+    },1000);
 </script>
 </body>
 </html>
