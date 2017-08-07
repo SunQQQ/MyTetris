@@ -6,7 +6,7 @@
     <style type="text/css">
         tr{}
         td{
-            width: 10px;height: 10px;background-color: red;border: 1px solid white;
+            width: 10px;height: 10px;border: 1px solid black;
         }
     </style>
 </head>
@@ -15,35 +15,47 @@
 <script>
     var cells = new Array();
 //    棋盘是十行
-    for(var i=1;i<10;i++){
+    for(var i=0;i<21;i++){
         var thistr = document.getElementsByClassName('area')[0].appendChild(document.createElement('tr'));
         cells[i] = thistr;
-        for(var s=1;s<10;s++){
+        for(var s=0;s<12;s++){
 //            每行10列
             var thistd = thistr.appendChild(document.createElement('td'));
             cells[i][s] = thistd;
         }
     }
 
-    cells[5][5].style.backgroundColor = 'yellow';
 //    cells是个类，有横纵坐标，背景颜色等。
 //    shape是一个父类，shape也是有一个个cells组成的。
 //    T、Z是子类
 //    然后一个个图形等都是一个个对象
 
-    function cell(s,r,color) {
+    function Cell(s,r,color) {
         this.s = s;
         this.r = r;
         this.color = color;
 
         cells[s][r].style.backgroundColor = color;
     }
-    var cell1 = new cell(5,6,'block');
-    function shape(cell1,cell2,cell3,cell4) {
-        this.cell1 = new cell();
-        this.cell2 = new cell();
-        this.cell3 = new cell();
-        this.cell4 = new cell();
+    new O;
+    function L() {
+        this.cell1 = new Cell(0,5,"black");
+        this.cell2 = new Cell(1,5,"black");
+        this.cell3 = new Cell(2,5,"black");
+        this.cell4 = new Cell(3,5,"black");
+        this.cell4 = new Cell(3,6,"black");
+    }
+    function I(cell1,cell2,cell3,cell4) {
+        this.cell1 = new Cell(0,5,"black");
+        this.cell2 = new Cell(1,5,"black");
+        this.cell3 = new Cell(2,5,"black");
+        this.cell4 = new Cell(3,5,"black");
+    }
+    function O(cell1,cell2,cell3,cell4) {
+        this.cell1 = new Cell(0,5,"black");
+        this.cell2 = new Cell(1,5,"black");
+        this.cell3 = new Cell(0,6,"black");
+        this.cell4 = new Cell(1,6,"black");
     }
 </script>
 </body>
