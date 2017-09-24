@@ -1,0 +1,40 @@
+.game{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 100px;
+    height: 200px;
+    border: 1px solid blue;
+}
+.next{
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    left: 120px;
+    top: 10px;
+    border: 1px blue solid;
+}
+.info{
+    left: 120px;
+    top: 100px;
+    position: absolute;
+}
+.current, .none, .done{
+    width: 10px;
+    height: 10px;
+    box-sizing: border-box;
+    /*position: absolute;*/
+    float: left;
+}
+.current{
+    background-color: pink;
+    border: 1px solid #d8a2ab;
+}
+.none{
+    background-color: white;
+}
+.done{
+    background-color: #666;
+    border:1px solid black;
+}
+

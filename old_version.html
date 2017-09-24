@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Tetris</title>
+    <style type="text/css">
+        tr{}
+        td{
+            width: 10px;height: 10px;border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div class="area"></div>
+<script>
+    var cells = new Array();
+//    棋盘是十行
+    for(var i=0;i<21;i++){
+        var thistr = document.getElementsByClassName('area')[0].appendChild(document.createElement('tr'));
+        cells[i] = thistr;
+        for(var s=0;s<12;s++){
+//            每行10列
+            var thistd = thistr.appendChild(document.createElement('td'));
+            cells[i][s] = thistd;
+        }
+    }
+
+//    cells是个类，有横纵坐标，背景颜色等。
+//    shape是一个父类，shape也是有一个个cells组成的。
+//    T、Z是子类
+//    然后一个个图形等都是一个个对象
+
+    function Cell(s,r,color) {
+        this.s = s;
+        this.r = r;
+        this.color = color;
+
+        cells[s][r].style.backgroundColor = color;
+    }
+
+    function Shape(cell1,cell2,cell3,cell4,color) {
+        this.cell1 = cell1;
+        this.cell2 = cell2;
+        this.cell3 = cell3;
+        this.cell4 = cell4;
+        this.color = color;
+        new Cell(cell1[0],cell1[1],color);
+        new Cell(cell2[0],cell2[1],color);
+        new Cell(cell3[0],cell3[1],color);
+        new Cell(cell4[0],cell4[1],color);
+    }
+    Shape.prototype.down = function () {
+        new Cell([this.cell1[0]+1],[this.cell1[1]],this.color);
+        new Cell([this.cell2[0]+1],[this.cell2[1]],this.color);
+        new Cell([this.cell3[0]+1],[this.cell3[1]],this.color);
+        new Cell([this.cell4[0]+1],[this.cell4[1]],this.color);
+    }
+    var shapeL = new Shape([0,5],[1,5],[2,5],[2,6],"red");
+
+    setInterval(function () {
+        shapeL.down();
+    },1000);
+</script>
+</body>
+</html>
