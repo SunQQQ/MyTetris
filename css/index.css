@@ -6,9 +6,9 @@
     height: 200px;
     border: 1px solid blue;
 }
-.next{
-    height: 80px;
-    width: 80px;
+.preview{
+    height: 40px;
+    width: 40px;
     position: absolute;
     left: 120px;
     top: 10px;
